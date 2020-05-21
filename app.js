@@ -2,7 +2,6 @@ require("dotenv").config();
 
 const cookieParser = require("cookie-parser");
 const express = require("express");
-const favicon = require("serve-favicon");
 const logger = require("morgan");
 const path = require("path");
 const cors = require("cors");
@@ -32,9 +31,6 @@ app.use(cookieParser());
 require("./configs/session.config")(app);
 
 require("./configs/passport/passport.config.js")(app);
-
-app.use(express.static(path.join(__dirname, "public")));
-app.use(favicon(path.join(__dirname, "public", "images", "favicon.ico")));
 
 // default value for title local
 app.locals.title = "Express - Generated with IronGenerator";
